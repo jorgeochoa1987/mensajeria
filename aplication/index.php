@@ -14,7 +14,7 @@ include('header.php');
 
 </style>
 
-
+<?php include('footer.php') ;?>
           <!-- / .main-navbar -->
           <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
@@ -138,9 +138,6 @@ function deletecard(id) {
 </script>
           </div>     
 
-          <?php 
-          include('footer.php') ;
-        
-         ?> 
+ 
 
          
