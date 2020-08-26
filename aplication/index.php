@@ -77,22 +77,22 @@ include('header.php');
   <div class="col-md-2">
   <?php 
                           require('../conex/conexion.php');
-                          $query="SELECT em.id as id,  dom.nombre as nombre, dom.foto as foto,  mo.placa as placa, mo.soat as soat, mo.vencimientosoat as vec  FROM `emparejados`as em join `cliente` as dom ON em.id_domiciliario = dom.id JOIN moto as mo ON em.id_moto = mo.id";
-                          $answer = $conexion -> query($query);
-                          while ($row=$answer->fetch_assoc()){
+                          $queryDom="SELECT em.id as id,  dom.nombre as nombre, dom.foto as foto,  mo.placa as placa, mo.soat as soat, mo.vencimientosoat as vec  FROM `emparejados`as em join `cliente` as dom ON em.id_domiciliario = dom.id JOIN moto as mo ON em.id_moto = mo.id";
+                          $answerDom = $conexion -> query($queryDom);
+                          while ($rowDom=$answerDom->fetch_assoc()){
                           ?> 
           <div class="card card-small mb-3 pt-3">
                   <div class="card-header border-bottom text-center">
                       <div class="mb-3 mx-auto">
-                        <img id="imgSalida" class="rounded-circle"src="modules/uploads/<?php echo $row['foto']; ?>"  alt="Ingrese foto" width="110"> </div>
+                        <img id="imgSalida" class="rounded-circle"src="modules/uploads/<?php echo $rowDom['foto']; ?>"  alt="Ingrese foto" width="110"> </div>
                         <div class="form-group col-md-12"> 
-                                  <label for="mesepago">Domiciliario: <?php echo $row['nombre']; ?></label>
-                                 <p style="margin-bottom: -0.25rem;">Placa:  <?php echo $row['placa']; ?></p>
-                                 <p style="margin-bottom: -0.25rem;">Soat vence:   <?php echo $row['vec']; ?></p>
+                                  <label for="mesepago">Domiciliario: <?php echo $rowDom['nombre']; ?></label>
+                                 <p style="margin-bottom: -0.25rem;">Placa:  <?php echo $rowDom['placa']; ?></p>
+                                 <p style="margin-bottom: -0.25rem;">Soat vence:   <?php echo $rowDom['vec']; ?></p>
                           </div>
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item px-4">
-                        <div class="progress-wrapper">
+                        <div class="progress-wrapper">  
                           <strong class="text-muted d-block mb-2"></strong>
                           <div class="progress progress-sm">
                             <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width: 74%;">
