@@ -15,7 +15,7 @@ $passPOST = htmlspecialchars(mysqli_real_escape_string($conexion, $passPOST));
 //Esta comprobación se tiene en cuenta por si se llegase a modificar el "maxlength" del formulario
 //Los valores deben coincidir con el tamaño máximo de la fila de la base de datos
 $maxCaracteresUsername = "100";
-$maxCaracteresPassword = "100";
+$maxCaracteresPassword = "100"; 
 
 //Si los input son de mayor tamaño, se "muere" el resto del código y muestra la respuesta correspondiente
 if(strlen($userPOST) > $maxCaracteresUsername) {
@@ -28,8 +28,8 @@ if(strlen($passPOST) > $maxCaracteresPassword) {
 
 //Pasamos el input del usuario a minúsculas para compararlo después con
 //el campo "usernamelowercase" de la base de datos
-$upperuser = strtoupper($userPOST);
-
+$upperuser = $userPOST;
+ 
 //Escribimos la consulta necesaria
 $consulta = "SELECT * FROM `users` WHERE correo='".$upperuser."'";
 
