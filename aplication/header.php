@@ -248,7 +248,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                     <img  style="
     width: 50%;
     height: 39px;
-" class="user-avatar rounded-circle mr-2" src="<?php  echo $foto ;?>" alt="Usuario">
+" class="user-avatar rounded-circle mr-2" src="../images/<?php  echo $foto ;?>" alt="Usuario">
                     <span class="d-none d-md-inline-block"><?php echo  $nombreApe; ?></span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
