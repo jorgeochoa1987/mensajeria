@@ -138,7 +138,9 @@ function deletecard(id) {
   $(idc).remove(); 
   } 
 </script>
+          </div>           </div> 
           </div> 
+
           <?php
          include('footer.php');
-         ?>
+         ?> 
