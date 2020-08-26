@@ -75,12 +75,12 @@ include('header.php');
       <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Bucarmanga,%20santander+(bucaramanga)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
   </div>
   <div class="col-md-2">
-  <?php 
+                      <?php 
                           require('../conex/conexion.php');
                           $queryDom="SELECT em.id as id,  dom.nombre as nombre, dom.foto as foto,  mo.placa as placa, mo.soat as soat, mo.vencimientosoat as vec  FROM `emparejados`as em join `cliente` as dom ON em.id_domiciliario = dom.id JOIN moto as mo ON em.id_moto = mo.id";
                           $answerDom = $conexion -> query($queryDom);
                           while ($rowDom=$answerDom->fetch_assoc()){
-                          ?> 
+                        ?> 
           <div class="card card-small mb-3 pt-3">
                   <div class="card-header border-bottom text-center">
                       <div class="mb-3 mx-auto">
@@ -130,12 +130,11 @@ function createnewcard() {
 </script>
 
 <script> 
-function deletecard(id) {
-  idc = "#"+id; 
-  $(idc).remove(); 
-  } 
+  function deletecard(id) {
+    idc = "#"+id; 
+    $(idc).remove(); 
+    } 
 </script>
-          </div>     
 
  
 
