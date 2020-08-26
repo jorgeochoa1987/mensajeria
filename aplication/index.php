@@ -139,7 +139,9 @@ function deletecard(id) {
   } 
 </script>
           </div>     
-
+<?php 
+echo "hola jorge";
+?>
           <?php 
           include_once("footer.php") ;
         
