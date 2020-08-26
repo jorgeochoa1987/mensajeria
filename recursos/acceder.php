@@ -7,15 +7,12 @@ require('../conex/conexion.php');
 $userPOST = $_POST["username"]; 
 $passPOST = $_POST["pass"];
 
-//Filtro anti-XSS
-$userPOST = htmlspecialchars(mysqli_real_escape_string($conexion, $userPOST));
-$passPOST = htmlspecialchars(mysqli_real_escape_string($conexion, $passPOST));
 
 //Definimos la cantidad máxima de caracteres
 //Esta comprobación se tiene en cuenta por si se llegase a modificar el "maxlength" del formulario
 //Los valores deben coincidir con el tamaño máximo de la fila de la base de datos
 $maxCaracteresUsername = "100";
-$maxCaracteresPassword = "100"; 
+$maxCaracteresPassword = "100";  
 
 //Si los input son de mayor tamaño, se "muere" el resto del código y muestra la respuesta correspondiente
 if(strlen($userPOST) > $maxCaracteresUsername) {
@@ -51,13 +48,13 @@ if($userBD == $upperuser and $passPOST== $passwordBD){
 	$_SESSION['foto'] = $datos['foto'];
 	$_SESSION['estado'] = 'Autenticado';
 	//redirecciono
-	header("Location:../redirect.html");
+	header("Location:../redirect.html"); 
 echo "ingresando";
 //Si los datos no son correctos, o están vacíos, muestra un error
 //Además, hay un script que vacía los campos con la clase "acceso" (formulario)
 } else if ( $userBD != $upperuser || $userPOST == "" || $passPOST == "" || !password_verify($passPOST, $passwordBD) ) {
 	die ('<script>$(".acceso").val("");</script>
-		Los datos de acceso son incorrectos'.$userBD .$passwordBD );
+		Los datos de acceso son incorrectos '.$userBD .$passwordBD );
 } else {
 	die('Error');
 };
