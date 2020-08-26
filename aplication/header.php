@@ -107,6 +107,55 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
     border-radius: .375rem;
     box-shadow: 0 0.5rem 4rem rgba(0,0,0,.11), 0 10px 20px rgba(0,0,0,.05), 0 2px 3px rgba(0,0,0,.06);
 }
+
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+	  	width: 100%; 
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}
   @media (max-width: 500px){ 
     .promo-popup.hidden {
     bottom: -74% !important;
@@ -245,10 +294,7 @@ if(!isset($_SESSION['usuario']) and $_SESSION['estado'] != 'Autenticado') {
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img  style="
-    width: 50%;
-    height: 39px;
-" class="user-avatar rounded-circle mr-2" src="../images/<?php  echo $foto ;?>" alt="Usuario">
+                    <img  style="width: 50%;height: 39px;" class="user-avatar rounded-circle mr-2" src="../images/<?php  echo $foto ;?>" alt="Usuario">
                     <span class="d-none d-md-inline-block"><?php echo  $nombreApe; ?></span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
