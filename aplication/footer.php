@@ -1,18 +1,17 @@
-</div>
 <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
             <ul class="nav">
               <li class="nav-item">
                 <a class="nav-link" href="index.php">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="nuevocliente.php">Nuevo cliente</a>
+                <a class="nav-link" href="eventos.php">Eventos</a>
               </li>
              
               <li class="nav-item">
-                <a class="nav-link" href="listarcartera.php">Cartera</a>
+                <a class="nav-link" href="picoyplaca.php">pico y placa </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Vencidos</a>
+                <a class="nav-link" href="gestion.php">Gestion Documental</a>
               </li>
             </ul>
             <span class="copyright ml-auto my-auto mr-2">Copyright © <?php  echo date("Y");?>
@@ -22,52 +21,7 @@
         </main>
       </div>
     </div>
-    <div class="promo-popup animated">
-      <a href="http://bit.ly/shards-dashboard-pro" class="pp-cta extra-action">
-     </a>
-      <div class="pp-intro-bar" style="
-    padding-right: 81px;
-    padding-left: 121px;
-">Clientes prioritarios
-        <span class="close">
-          <i class="material-icons">close</i>
-        </span>
-        <span class="up">
-          <i class="material-icons">keyboard_arrow_up</i>
-        </span>
-      </div>
-      <div class="pp-inner-content" style="padding-left:15px!important">
-        <div class="row">
-        <?php
-                          require('../conex/conexion.php');
-                          $query99="SELECT * FROM `cliente` WHERE `favorito`=1";
-                          $answer99 = $conexion -> query($query99);
-                          while ($row99=$answer99->fetch_assoc()){
-                          ?> 
-              <div class="col-lg col-md-2 col-sm-6 mb-4">
-                <div class="stats-small stats-small--1 card card-small">
-                  <div class="card-body p-0 d-flex">
-                    <div class="d-flex flex-column m-auto">
-                      <div class="stats-small__data text-center">
-                        <span class="stats-small__label text-uppercase"><?php echo $row99['nombre']; ?></span>
-                        <h6 class="stats-small__value count my-3"><?php echo $row99['telefono']; ?></h6>
-                      </div>
-                      <div class="stats-small__data">
-                      </div>
-                    </div>
-                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
-                  </div>
-                </div>
-              </div>
-              <?php 
-                        } 
-                        ?>
-                     
-                             
-        </div>
-        <a class="pp-cta extra-action" href="index.php">Ver lista completa</a>
-      </div>
-    </div>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
