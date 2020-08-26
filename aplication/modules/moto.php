@@ -11,6 +11,9 @@ if (isset($_POST['save'])) {
     $dueno = $_POST['dueno'];
     $notas = $_POST['notas'];
 
+    $tecno = $_POST['tecno'];
+    $fectecno = $_POST['fectecno'];
+    $propio = $_POST['check'];
 
     if(empty($_FILES['file']['name']))
     {
@@ -38,7 +41,7 @@ if (isset($_POST['save'])) {
 
  
 
-  	$sql = "INSERT INTO `moto` (`id`, `marca`, `modelo`, `placa`, `color`, `soat`, `vencimientosoat`, `dueno`, `notas`, `crea`, `modifica`, `foto`) VALUES (NULL, '$marca', '$modelo', '$placa', '$color', '$soat', '$vec', '$dueno', '$notas', current_timestamp(), current_timestamp(), '$uploadedFile');";
+  	$sql = "INSERT INTO `moto` (`id`, `marca`, `modelo`, `placa`, `color`, `soat`, `vencimientosoat`, `dueno`, `notas`, `crea`, `modifica`, `foto`, `tecnomecanica`, `fectecnomecanica`, `propio`) VALUES (NULL, '$marca', '$modelo', '$placa', '$color', '$soat', '$vec', '$dueno', '$notas', current_timestamp(), current_timestamp(), '$uploadedFile', '$tecno', '$fectecno', '$propio');";
   	if (mysqli_query($conexion, $sql)) {
         echo $marca;
       } else {

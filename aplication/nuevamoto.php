@@ -86,16 +86,23 @@ include('header.php');
                                         </div>
                                         <div class="form-row">
                                           <div class="form-group col-md-6"> 
-                                            <label for="dueno">Tecnomecanica</label>
-                                            <input type="text" class="form-control" id="tecno" name="tecno" placeholder="Ingrese #tecnomecanica">
-                                            <label for="dueno">Fecha Tecnomecanica</label>
-                                            <input type="date" class="form-control" id="tecno" name="ftecno" placeholder="fecha #tecnomecanica"> </div>
+                                            <label for="">Tecnomecanica</label>
+                                            <input type="text" class="form-control" id="tecno" name="tecno" placeholder="Ingrese #tecnomecanica"></div>
+                                            <div class="form-group col-md-6"> 
+                                            <label for="fectecno">Fecha Tecnomecanica</label>
+                                            <input type="date" class="form-control" id="fectecno" name="fectecno" placeholder="fecha #tecnomecanica"> </div>
                                         </div>  
+
                                         <div class="form-row">
                                           <div class="form-group col-md-6"> 
-                                            <label for="dueno">Dueño</label>
+                                            <label for="dueno">Nombre del Dueño</label>
                                             <input type="text" class="form-control" id="dueno" name="dueno" placeholder="Ingrese dueño"> </div>
-                                        </div>   
+                                            <div class="form-group col-md-6"> 
+                                            <label for="check">Es vehículo de la empresa 
+                                              <input type="radio" name="check" value="si">si
+                                              <input type="radio" name="check" value="no">no</label> </div>
+                                     
+                                        </div>    
                                         <div class="form-row">
                                           <div class="form-group col-md-12">
                                             <label for="notas">Notas adicionales</label>
@@ -139,11 +146,11 @@ include('header.php');
                           <th scope="col" class="border-0">#</th>
                           <th scope="col" class="border-0">foto</th>
                           <th scope="col" class="border-0">Marca</th>
-                          <th scope="col" class="border-0">Modelo</th>
                           <th scope="col" class="border-0">Placa</th>
-                          <th scope="col" class="border-0">Color</th>
                           <th scope="col" class="border-0">Soat</th>
-                          <th scope="col" class="border-0">Vencimiento</th>
+                          <th scope="col" class="border-0">Fecha Vec Soat</th>
+                          <th scope="col" class="border-0">Tecnomecanica</th>
+                          <th scope="col" class="border-0">Fecha Vec Tecnomecanica</th>
                           <th scope="col" class="border-0">Dueño</th>
                           <th scope="col" class="border-0">Notas</th>
                           <th scope="col" class="border-0">Registro de KM</th>
@@ -160,12 +167,19 @@ include('header.php');
                           while ($row=$answer->fetch_assoc()){
                           ?>
                           <tr>
-                              <td> <?php echo $row['id']; ?></td>
-                              <td> <img src="modules/uploads/<?php echo $row['foto']; ?>"  style="width: 100%;"/></td>
+                              <td style="background:<?php 
+                              if ( $row['propio']=='si')
+                              echo " #28a745;color: white;" 
+                               ?>">  
+                              <?php echo $row['id']; ?></td>
+                              <td> <img src="modules/uploads/<?php
+                              if($row['foto']==''){
+                                echo "picture.png";
+                              }else{
+                                echo $row['foto']; } ?>
+                              "style="width: 100%;"/></td>
                               <td> <?php echo $row['marca']; ?></td>
-                              <td> <?php echo $row['modelo']; ?></td>
                               <td> <?php echo $row['placa']; ?></td>
-                              <td> <?php echo $row['color']; ?></td>
                               <td> <?php echo $row['soat']; ?></td>
                               <td> 
                               <?php 
@@ -175,9 +189,16 @@ include('header.php');
 
                               if ($date== $soat)
                               {
-                                echo "a vencer";
+                                echo  $row['vencimientosoat'];
                               }
+                              else
+                              {
+                                $row['vencimientosoat'];
+                              } 
                                 ?></td>
+                             <td> <?php echo $row['tecnomecanica']; ?></td>
+                             <td> <?php echo $row['fectecnomecanica']; ?></td>
+
                               <td> <?php echo $row['dueno']; ?></td>
                               <td> <?php echo $row['notas']; ?></td>
 

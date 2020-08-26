@@ -119,7 +119,12 @@ include('header.php');
                           ?> 
                           <tr>
                               <td> <?php echo $row['id']; ?></td>
-                              <td> <img src="modules/uploads/<?php echo $row['domfoto']; ?>"  style="width: 30  %;"/></td>
+                              <td> <img src="modules/uploads/<?php
+                              if($row['domfoto']==''){
+                                echo "picture.png";
+                              }else{
+                                echo $row['domfoto']; } ?> 
+                              "style="width: 30% "/></td>
                               <td> <?php echo $row['nombre']; ?></td>
                               <td> <?php echo $row['placa']; ?></td>
                               <td> <?php echo $row['soat']; ?></td>
